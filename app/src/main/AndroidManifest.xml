@@ -23,6 +23,7 @@
         <activity android:name=".controllers.DepartmentModify"/>
         <activity android:name=".controllers.EmployeesFromDepartment"/>
         <activity android:name=".controllers.EmployeeActivity"/>
+        <activity android:name=".controllers.EmployeesRead"/>
     </application>
 
 </manifest>

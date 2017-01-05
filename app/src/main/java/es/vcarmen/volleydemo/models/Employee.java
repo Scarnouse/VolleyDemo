@@ -44,6 +44,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return getIdEmployee() + " " + getNameEmployee() + " " + getSurnameEmployee() + " " + getStartDateEmployee();
+        return getIdEmployee() + " " + getNameEmployee() + " " + getSurnameEmployee();
     }
 }

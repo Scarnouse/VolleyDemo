@@ -14,11 +14,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import es.vcarmen.volleydemo.R;
-import es.vcarmen.volleydemo.controllers.EmployeesRead;
 
 /**
  * Created by Lolo on 05/01/2017.
@@ -41,6 +48,7 @@ public class EmployeeAdapter extends ArrayAdapter {
                     @Override
                     public void onResponse(String response) {
                         items = parseJson(response);
+                        notifyDataSetChanged();
                     }
                 },
                 new Response.ErrorListener() {
@@ -83,7 +91,8 @@ public class EmployeeAdapter extends ArrayAdapter {
         idEmployee.setText(String.valueOf(employee.getIdEmployee()));
         nameEmployee.setText(employee.getNameEmployee());
         surnameEmployee.setText(employee.getSurnameEmployee());
-        startDateEmployee.setText((CharSequence) employee.getStartDateEmployee());
+        SimpleDateFormat simpleDate = new SimpleDateFormat("dd-MM-YYYY");
+        startDateEmployee.setText(simpleDate.format(employee.getStartDateEmployee()));
         deptEmployee.setText(String.valueOf(employee.getIdDepartment()));
 
         return listItemView;
@@ -91,7 +100,29 @@ public class EmployeeAdapter extends ArrayAdapter {
 
     private List<Employee> parseJson(String response) {
         List<Employee> employees = new ArrayList<>();
-        //TO DO
+        JSONArray jsonArray = null;
+
+        try {
+            jsonArray = new JSONArray(response);
+
+            for (int i = 0; i < jsonArray.length(); i++){
+                JSONObject object = jsonArray.getJSONObject(i);
+
+                String[] arrayDate = object.getString("start_date_empl").split("T")[0].split("-");
+                try {
+                    Date date = (Date)new SimpleDateFormat("dd-MM-yyyy").parse(arrayDate[2]+"-"+arrayDate[1]+"-"+arrayDate[0]);
+                    employees.add(new Employee(Integer.parseInt(object.getString("n_empl")), object.getString("name_empl"), object.getString("surname_empl"), date, Integer.parseInt(object.getString("n_dept"))));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            //Log.d("empl", employees.toString());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         return employees;
     }
 }

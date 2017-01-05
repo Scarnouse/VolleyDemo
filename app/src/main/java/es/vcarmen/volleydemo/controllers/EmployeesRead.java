@@ -25,6 +25,7 @@ public class EmployeesRead extends AppCompatActivity{
         listView = (ListView) findViewById(R.id.employeesListView);
 
         adapter = new EmployeeAdapter(this);
+        listView.setAdapter(adapter);
 
     }
 }
