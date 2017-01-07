@@ -19,29 +19,26 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import es.vcarmen.volleydemo.R;
 
 /**
- * Created by Lolo on 05/01/2017.
+ * Created by Lolo on 07/01/2017.
  */
-public class EmployeeAdapter extends ArrayAdapter {
+public class ProjectAdapter extends ArrayAdapter{
 
     private RESTEmployeesSingleton requestQueue;
-    private final String URL_BASE = "http://192.168.1.42:3000/employees";
-    List<Employee> items;
+    private final String URL_BASE = "http://192.168.1.42:3000/projects";
+    private List<Project> items;
 
-    public EmployeeAdapter(Context context){
+    public ProjectAdapter(Context context){
         super(context, 0);
 
         requestQueue = RESTEmployeesSingleton.getInstance(getContext());
 
-        StringRequest stringRequest = new StringRequest(
+        StringRequest getRequest = new StringRequest(
                 Request.Method.GET,
                 URL_BASE,
                 new Response.Listener<String>() {
@@ -58,7 +55,8 @@ public class EmployeeAdapter extends ArrayAdapter {
                     }
                 }
         );
-        requestQueue.addToRequestQueue(stringRequest);
+
+        requestQueue.addToRequestQueue(getRequest);
     }
 
     @Override
@@ -75,60 +73,49 @@ public class EmployeeAdapter extends ArrayAdapter {
         View listItemView = convertView;
 
         listItemView = null == convertView ? layoutInflater.inflate(
-                R.layout.employees,
+                R.layout.project,
                 parent,
                 false
         ) : convertView;
 
-        Employee employee = items.get(position);
+        Project project = items.get(position);
 
-        TextView idEmployee = (TextView) listItemView.findViewById(R.id.idEmployee);
-        TextView nameEmployee = (TextView) listItemView.findViewById(R.id.nameEmployee);
-        TextView surnameEmployee = (TextView) listItemView.findViewById(R.id.surnameEmployee);
-        TextView startDateEmployee = (TextView) listItemView.findViewById(R.id.startDateEmployee);
-        TextView deptEmployee = (TextView) listItemView.findViewById(R.id.deptEmployee);
+        TextView idProject = (TextView) listItemView.findViewById(R.id.idProject);
+        TextView nameProject = (TextView) listItemView.findViewById(R.id.nameProject);
+        TextView budgetProject = (TextView) listItemView.findViewById(R.id.budgetProject);
 
-        idEmployee.setText(String.valueOf(employee.getIdEmployee()));
-        nameEmployee.setText(employee.getNameEmployee());
-        surnameEmployee.setText(employee.getSurnameEmployee());
-        SimpleDateFormat simpleDate = new SimpleDateFormat("dd-MM-YYYY");
-        startDateEmployee.setText(simpleDate.format(employee.getStartDateEmployee()));
-        deptEmployee.setText(String.valueOf(employee.getIdDepartment()));
+        idProject.setText(String.valueOf(project.getIdProject()));
+        nameProject.setText(project.getNameProject());
+        budgetProject.setText(String.valueOf(project.getBudgetProject()));
 
         return listItemView;
     }
 
     @Nullable
     @Override
-    public Employee getItem(int position) {
+    public Project getItem(int position) {
         return items.get(position);
     }
 
-    private List<Employee> parseJson(String response) {
-        List<Employee> employees = new ArrayList<>();
+    private List<Project> parseJson(String response) {
+        List<Project> projects = new ArrayList<>();
+
         JSONArray jsonArray = null;
 
         try {
             jsonArray = new JSONArray(response);
 
-            for (int i = 0; i < jsonArray.length(); i++){
+            for(int i = 0; i < jsonArray.length(); i++){
                 JSONObject object = jsonArray.getJSONObject(i);
 
-                String[] arrayDate = object.getString("start_date_empl").split("T")[0].split("-");
-                try {
-                    Date date = (Date)new SimpleDateFormat("dd-MM-yyyy").parse(arrayDate[2]+"-"+arrayDate[1]+"-"+arrayDate[0]);
-                    employees.add(new Employee(Integer.parseInt(object.getString("n_empl")), object.getString("name_empl"), object.getString("surname_empl"), date, Integer.parseInt(object.getString("n_dept"))));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+                projects.add(new Project(Integer.parseInt(object.getString("n_proj")), object.getString("name_proj"), Integer.parseInt(object.getString("budget_proj"))));
             }
 
-            //Log.d("empl", employees.toString());
-
+            Log.d("proj", projects.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        return employees;
+        return projects;
     }
 }

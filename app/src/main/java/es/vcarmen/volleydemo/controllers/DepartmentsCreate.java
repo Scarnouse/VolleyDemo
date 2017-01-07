@@ -30,7 +30,7 @@ import es.vcarmen.volleydemo.models.RESTEmployeesSingleton;
 public class DepartmentsCreate extends AppCompatActivity{
 
     private RESTEmployeesSingleton requestQueue;
-    private String URL_BASE = "http://192.168.1.42:3000/departments";
+    private final String URL_BASE = "http://192.168.1.42:3000/departments";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

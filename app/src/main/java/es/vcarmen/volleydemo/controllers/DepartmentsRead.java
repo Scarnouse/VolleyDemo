@@ -62,7 +62,7 @@ public class DepartmentsRead extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        getMenuInflater().inflate(R.menu.department_menu, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class DepartmentsRead extends AppCompatActivity {
         Department department = (Department) adapter.getItem(info.position);
 
         switch (item.getItemId()) {
-            case R.id.departmentModify:
+            case R.id.modify:
 
                 //Log.d("item", department.getIdDepartment());
                 Intent intent = new Intent(getApplicationContext(), DepartmentModify.class);
@@ -81,7 +81,7 @@ public class DepartmentsRead extends AppCompatActivity {
                 startActivity(intent);
                 finish();
                 return true;
-            case R.id.departmentDelete:
+            case R.id.delete:
                 final String URL_BASE = "http://192.168.1.42:3000/departments/" + department.getIdDepartment();
                 //Log.d("item", URL_BASE);
 

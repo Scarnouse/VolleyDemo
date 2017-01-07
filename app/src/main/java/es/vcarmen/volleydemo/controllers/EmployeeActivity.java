@@ -31,13 +31,15 @@ public class EmployeeActivity extends AppCompatActivity {
 
         Button createEmployee = (Button) findViewById(R.id.createEmployee);
 
-        //final Intent createDeptIntent = new Intent(this, DepartmentsCreate.class);
+        final Intent createDeptIntent = new Intent(this, EmployeesCreate.class);
 
         createEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(createDeptIntent);
+                startActivity(createDeptIntent);
             }
         });
+
+
     }
 }
