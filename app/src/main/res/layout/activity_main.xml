@@ -8,34 +8,62 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context="es.vcarmen.volleydemo.controllers.MainActivity">
 
-    <Button
-        android:id="@+id/departmentsBtn"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Departments"
-        android:layout_gravity="center"
-        android:gravity="center"
         android:layout_weight="1"
-        android:textSize="13dp"/>
-    <Button
-        android:id="@+id/employeesBtn"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/departmentsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Departments"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="13dp"/>
+        <Button
+            android:id="@+id/employeesBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Employees"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="13dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Employees"
-        android:layout_gravity="center"
-        android:gravity="center"
         android:layout_weight="1"
-        android:textSize="13dp"/>
-    <Button
-        android:id="@+id/projectsBtn"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Projects"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:textSize="13dp"/>
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/projectsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Projects"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="13dp"/>
+
+        <Button
+            android:id="@+id/worksOnBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Works On"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="13dp"/>
+
+    </LinearLayout>
+
 </LinearLayout>

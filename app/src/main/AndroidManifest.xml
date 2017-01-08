@@ -28,6 +28,9 @@
         <activity android:name=".controllers.EmployeeModify"/>
         <activity android:name=".controllers.ProjectsActivity"/>
         <activity android:name=".controllers.ProjectsRead"/>
+        <activity android:name=".controllers.ProjectCreate"/>
+        <activity android:name=".controllers.ProjectModify"/>
+        <activity android:name=".controllers.EmployeesFromProject"/>
     </application>
 
 </manifest>

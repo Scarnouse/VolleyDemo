@@ -32,5 +32,16 @@ public class ProjectsActivity extends AppCompatActivity{
                 startActivity(listProjIntent);
             }
         });
+
+        newProject = (Button) findViewById(R.id.createProject);
+
+        final Intent createProject = new Intent(this, ProjectCreate.class);
+
+        newProject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(createProject);
+            }
+        });
     }
 }

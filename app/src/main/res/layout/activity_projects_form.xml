@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="ID"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/inputIdProject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Input proj number"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:inputType="number"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="NAME"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/inputNameProject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Input proj name"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:inputType="text"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="BUDGET"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/inputBudgetProject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Input proj budget"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:inputType="number"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/inputProjBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEND"/>
+
+</LinearLayout>
