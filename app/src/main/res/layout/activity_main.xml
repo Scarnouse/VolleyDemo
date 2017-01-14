@@ -11,12 +11,6 @@
     android:orientation="vertical"
     tools:context="es.vcarmen.volleydemo.controllers.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
         <Button
             android:id="@+id/departmentsBtn"
             android:layout_width="match_parent"
@@ -26,6 +20,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:textSize="13dp"/>
+
         <Button
             android:id="@+id/employeesBtn"
             android:layout_width="match_parent"
@@ -36,14 +31,6 @@
             android:layout_weight="1"
             android:textSize="13dp"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
         <Button
             android:id="@+id/projectsBtn"
             android:layout_width="match_parent"
@@ -53,17 +40,5 @@
             android:gravity="center"
             android:layout_weight="1"
             android:textSize="13dp"/>
-
-        <Button
-            android:id="@+id/worksOnBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Works On"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:textSize="13dp"/>
-
-    </LinearLayout>
 
 </LinearLayout>
