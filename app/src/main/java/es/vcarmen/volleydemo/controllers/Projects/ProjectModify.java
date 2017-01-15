@@ -1,4 +1,4 @@
-package es.vcarmen.volleydemo.controllers;
+package es.vcarmen.volleydemo.controllers.Projects;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,29 +25,33 @@ import es.vcarmen.volleydemo.R;
 import es.vcarmen.volleydemo.models.RESTEmployeesSingleton;
 
 /**
- * Created by Lolo on 04/01/2017.
+ * Created by Lolo on 08/01/2017.
  */
-public class DepartmentModify extends AppCompatActivity{
+public class ProjectModify extends AppCompatActivity{
+
+    private EditText idProject;
+    private EditText nameProject;
+    private EditText budgetProject;
+    private Button send;
 
     private RESTEmployeesSingleton requestQueue;
-    EditText editId;
-    EditText editName;
-    Button send;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_departments_form);
+        setContentView(R.layout.activity_projects_form);
 
-        final String URL_BASE = "http://192.168.1.42:3000/departments/" + getIntent().getStringExtra("id");
-        //Log.d("modify", getIntent().getStringExtra("name"));
+        final String URL_BASE = "http://192.168.1.42:3000/projects/" + getIntent().getStringExtra("id");
 
-        editId = (EditText) findViewById(R.id.inputIdDepartment);
-        editId.setText(getIntent().getStringExtra("id"));
-        editName = (EditText) findViewById(R.id.inputNameDepartment);
-        editName.setText(getIntent().getStringExtra("name"));
+        idProject = (EditText) findViewById(R.id.inputIdProject);
+        nameProject = (EditText) findViewById(R.id.inputNameProject);
+        budgetProject = (EditText) findViewById(R.id.inputBudgetProject);
 
-        send = (Button) findViewById(R.id.inputDeptBtn);
+        idProject.setText(getIntent().getStringExtra("id"));
+        nameProject.setText(getIntent().getStringExtra("name"));
+        budgetProject.setText(getIntent().getStringExtra("budget"));
+
+        send = (Button) findViewById(R.id.inputProjBtn);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +59,7 @@ public class DepartmentModify extends AppCompatActivity{
 
                 requestQueue = RESTEmployeesSingleton.getInstance(getApplicationContext());
 
-                StringRequest putRequest = new StringRequest(
+                StringRequest postRequest = new StringRequest(
                         Request.Method.PUT,
                         URL_BASE,
                         new Response.Listener<String>() {
@@ -63,7 +67,6 @@ public class DepartmentModify extends AppCompatActivity{
                             public void onResponse(String response) {
                                 try {
                                     Toast.makeText(getApplicationContext(), new JSONObject(response).getString("msg"), Toast.LENGTH_SHORT).show();
-                                    //Log.d("Response", object.getString("msg"));
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -76,21 +79,24 @@ public class DepartmentModify extends AppCompatActivity{
                             }
                         }
                 ) {
-
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<String, String>();
-                        params.put("n_dept", editId.getText().toString());
-                        params.put("name_dept", editName.getText().toString());
+                        Map<String, String> params = new HashMap<>();
+                        params.put("n_proj", ((EditText) findViewById(R.id.inputIdProject)).getText().toString());
+                        params.put("name_proj", ((EditText) findViewById(R.id.inputNameProject)).getText().toString());
+                        params.put("budget_proj", ((EditText) findViewById(R.id.inputBudgetProject)).getText().toString());
+
+                        Log.d("params", String.valueOf(params));
 
                         return params;
                     }
                 };
 
-                requestQueue.addToRequestQueue(putRequest);
+                requestQueue.addToRequestQueue(postRequest);
 
                 finish();
             }
         });
+
     }
 }

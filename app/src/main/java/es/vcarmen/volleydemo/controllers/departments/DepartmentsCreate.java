@@ -1,4 +1,4 @@
-package es.vcarmen.volleydemo.controllers;
+package es.vcarmen.volleydemo.controllers.departments;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

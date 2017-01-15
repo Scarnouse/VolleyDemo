@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="NAME"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/spinnerName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:spinnerMode="dropdown"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="DATE"
+        android:textSize="30dp"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/inputStartDateProject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Input start proj date"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:inputType="date"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="TASK"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="task"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:inputType="text"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/inputEmpToProjBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEND"/>
+
+</LinearLayout>

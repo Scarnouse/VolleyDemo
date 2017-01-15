@@ -1,4 +1,4 @@
-package es.vcarmen.volleydemo.controllers;
+package es.vcarmen.volleydemo.controllers.Projects;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,8 +22,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import es.vcarmen.volleydemo.R;
-import es.vcarmen.volleydemo.models.Project;
-import es.vcarmen.volleydemo.models.ProjectAdapter;
+import es.vcarmen.volleydemo.controllers.Employees.EmployeesFromProject;
+import es.vcarmen.volleydemo.controllers.Employees.EmployeesToProject;
+import es.vcarmen.volleydemo.models.Project.Project;
+import es.vcarmen.volleydemo.models.Project.ProjectAdapter;
 import es.vcarmen.volleydemo.models.RESTEmployeesSingleton;
 
 /**
@@ -63,7 +65,7 @@ public class ProjectsRead extends AppCompatActivity{
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_project, menu);
     }
 
     @Override
@@ -79,9 +81,22 @@ public class ProjectsRead extends AppCompatActivity{
             case R.id.delete:
                 deleteProject();
                 return true;
+            case R.id.addEmployeeToProject:
+                addEmployeeToProject();
+                return true;
         }
 
         return false;
+    }
+
+    private void addEmployeeToProject() {
+        Intent intent = new Intent(getApplicationContext(), EmployeesToProject.class);
+
+        intent.putExtra("id", String.valueOf(project.getIdProject()));
+
+        startActivity(intent);
+
+        finish();
     }
 
     private void modifyProject() {

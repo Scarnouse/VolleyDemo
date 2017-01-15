@@ -1,4 +1,4 @@
-package es.vcarmen.volleydemo.controllers;
+package es.vcarmen.volleydemo.controllers.departments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,8 +21,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import es.vcarmen.volleydemo.R;
-import es.vcarmen.volleydemo.models.Department;
-import es.vcarmen.volleydemo.models.DepartmentAdapter;
+import es.vcarmen.volleydemo.controllers.Employees.EmployeesFromDepartment;
+import es.vcarmen.volleydemo.models.Department.Department;
+import es.vcarmen.volleydemo.models.Department.DepartmentAdapter;
 import es.vcarmen.volleydemo.models.RESTEmployeesSingleton;
 
 /**

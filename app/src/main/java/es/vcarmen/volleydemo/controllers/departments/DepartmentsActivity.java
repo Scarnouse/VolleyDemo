@@ -1,4 +1,4 @@
-package es.vcarmen.volleydemo.controllers;
+package es.vcarmen.volleydemo.controllers.departments;
 
 import android.content.Intent;
 import android.os.Bundle;

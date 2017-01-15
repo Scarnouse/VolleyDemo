@@ -1,4 +1,4 @@
-package es.vcarmen.volleydemo.models;
+package es.vcarmen.volleydemo.models.Department;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.vcarmen.volleydemo.R;
+import es.vcarmen.volleydemo.models.RESTEmployeesSingleton;
 
 /**
  * Created by Lolo on 02/01/2017.

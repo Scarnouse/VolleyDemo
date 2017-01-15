@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Volley Demo</string>
+    <string name="spinner">Select an Employee</string>
 </resources>

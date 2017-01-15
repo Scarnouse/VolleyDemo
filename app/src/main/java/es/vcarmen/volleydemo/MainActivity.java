@@ -1,4 +1,4 @@
-package es.vcarmen.volleydemo.controllers;
+package es.vcarmen.volleydemo;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import es.vcarmen.volleydemo.R;
+import es.vcarmen.volleydemo.controllers.Employees.EmployeeActivity;
+import es.vcarmen.volleydemo.controllers.Projects.ProjectsActivity;
+import es.vcarmen.volleydemo.controllers.departments.DepartmentsActivity;
 
 public class MainActivity extends AppCompatActivity {
 

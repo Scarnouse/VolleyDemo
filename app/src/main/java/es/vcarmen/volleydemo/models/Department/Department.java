@@ -1,4 +1,4 @@
-package es.vcarmen.volleydemo.models;
+package es.vcarmen.volleydemo.models.Department;
 
 /**
  * Created by Lolo on 02/01/2017.
