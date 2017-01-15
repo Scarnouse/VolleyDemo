@@ -1,4 +1,4 @@
-package es.vcarmen.volleydemo.controllers;
+package es.vcarmen.volleydemo.controllers.Employees;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,8 +24,8 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 
 import es.vcarmen.volleydemo.R;
-import es.vcarmen.volleydemo.models.Employee;
-import es.vcarmen.volleydemo.models.EmployeeAdapter;
+import es.vcarmen.volleydemo.models.Employee.Employee;
+import es.vcarmen.volleydemo.models.Employee.EmployeeAdapter;
 import es.vcarmen.volleydemo.models.RESTEmployeesSingleton;
 
 /**

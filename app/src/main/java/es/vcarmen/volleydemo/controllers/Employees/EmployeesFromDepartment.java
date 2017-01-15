@@ -1,4 +1,4 @@
-package es.vcarmen.volleydemo.controllers;
+package es.vcarmen.volleydemo.controllers.Employees;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,7 +23,7 @@ import java.util.Date;
 import java.util.List;
 
 import es.vcarmen.volleydemo.R;
-import es.vcarmen.volleydemo.models.Employee;
+import es.vcarmen.volleydemo.models.Employee.Employee;
 import es.vcarmen.volleydemo.models.RESTEmployeesSingleton;
 
 /**
